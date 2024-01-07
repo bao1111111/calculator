@@ -17,3 +17,5 @@ function division(a,b){
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
+
+function operator(){}
