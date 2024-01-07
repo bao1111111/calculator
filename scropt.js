@@ -18,4 +18,17 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 
-function operator(){}
+function operate(operator, a, b) {
+    switch (operator) {
+        case "+":
+            return addition(a, b);
+        case "-":
+            return subtraction(a, b);
+        case "*":
+            return multiplication(a, b);
+        case "/":
+            return division(a, b);
+        default:
+            return NaN;
+    }
+}
