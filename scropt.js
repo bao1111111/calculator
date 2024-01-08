@@ -55,3 +55,24 @@ allOperatorButtons.forEach(button => {
     operator += button.textContent
     })
 })
+
+// Event listener for the equals button //
+const equalButton = document.getElementById("equals")
+      equalButton.addEventListener("click", () => {
+      if (firstNumber && operator && secondNumber) {
+         const result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
+         firstNumber = result.toString();
+         operator = "";
+         secondNumber = "";
+        }
+});
+
+// Event listener for the clear button //
+
+const clearButton = document.getElementById("clear")
+
+clearButton.addEventListener("click", () => {
+    firstNumber = "";
+    operator = "";
+    secondNumber = ""
+})
