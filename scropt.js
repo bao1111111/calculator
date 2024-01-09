@@ -46,6 +46,7 @@ numberButtons.forEach(button => {
             secondNumber += button.textContent;
         }
     });
+    updateDisplay()
 });
 
 // Event listeners for the operator buttons//
@@ -54,6 +55,7 @@ allOperatorButtons.forEach(button => {
     button.addEventListener("click", () =>{
     operator += button.textContent
     })
+    updateDisplay()
 })
 
 // Event listener for the equals button //
@@ -65,14 +67,26 @@ const equalButton = document.getElementById("equals")
          operator = "";
          secondNumber = "";
         }
+        updateDisplay()
 });
 
 // Event listener for the clear button //
 
-const clearButton = document.getElementById("clear")
-
-clearButton.addEventListener("click", () => {
+function clearCalculator() {
     firstNumber = "";
     operator = "";
-    secondNumber = ""
-})
+    secondNumber = "";
+    updateDisplay();
+}
+
+// Event listener for clear button
+document.getElementById("clear").addEventListener("click", () => {
+    clearCalculator();
+});
+
+
+// Function to update the display//
+function updateDisplay(){
+    const display = document.getElementById("display")
+    return display.textContent += firstNumber + operator + secondNumber
+}
