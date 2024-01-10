@@ -45,8 +45,8 @@ numberButtons.forEach(button => {
         } else {
             secondNumber += button.textContent;
         }
+        updateDisplay(); 
     });
-    updateDisplay()
 });
 
 // Event listeners for the operator buttons//
@@ -70,8 +70,7 @@ const equalButton = document.getElementById("equals")
         updateDisplay()
 });
 
-// Event listener for the clear button //
-
+// Function to clear the calculator
 function clearCalculator() {
     firstNumber = "";
     operator = "";
@@ -86,7 +85,11 @@ document.getElementById("clear").addEventListener("click", () => {
 
 
 // Function to update the display//
-function updateDisplay(){
-    const display = document.getElementById("display")
-    return display.textContent += firstNumber + operator + secondNumber
+function updateDisplay() {
+    const display = document.getElementById("display");
+    if (firstNumber || operator || secondNumber) {
+        display.textContent = firstNumber + operator + secondNumber;
+    } else {
+        display.textContent = "0"; // Display "0" when there's no input
+    }
 }
